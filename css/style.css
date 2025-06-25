@@ -1,0 +1,135 @@
+*{ /*reset das configurações nativas do css*/
+    margin:0;
+    padding: o;
+    box-sizing: border-box;
+}
+.local_jogo { /*centralizar nossa área do game*/
+    width: 100%; /*- efeitos de construção e visualização*/
+    height: 500px;
+   /* border-bottom: 10px solid #7cfc00; /*colocar uma imagem fixa de um piso*/
+    border: 0 solid transparent;   
+    margin: 0 auto;    
+    position: relative; /*imgs respeitarem a delimitação do quadro*/
+    overflow: hidden; /*tudo que sai do quadro do jogo não aparecer*/
+    background: #87ceeb ;
+}
+.grill {
+    position: absolute; /*para que nenhuma imagem intefira no comportamento da outra*/
+    bottom: 0;
+    width: 60px;
+    /* right: ;  (0 até 100%) - precisa que ele inicie na direita e sai da tela na esquerda*/
+    animation: grill_movimento infinite linear 3s; /*infinito e linear - 3 segundos de tempo*/
+    /* left: 130px; /*deslocamento esquerde de 130. Encosta no boi e o jogo acaba */
+}
+.boi {
+    width: 150px;
+    position: absolute;
+    bottom: 0; /*78px para o boi não encostar no fogo*/
+    /* animation: boi_pulando ease-out 500ms; -- easy-out - cair um pouco mais suave*/
+}
+.pulo {
+    animation: boi_pulando ease-out 500ms;
+}
+.nuvens {
+    position: absolute;
+    width: 600px;    
+    margin-left: 300px;
+    margin-top: -250px;
+    animation: nuvens_movendo infinite ease 15s;
+}
+.sol {
+    position: absolute;
+    width: 200px;
+    margin-left: -10px;
+    margin-top: -60px;
+}
+.balao {
+    position: absolute;
+    width: 100px;
+    margin-left: 300px;
+    margin-top: 130px;
+    animation: balao_movendo infinite ease 20s; 
+}
+.piso {
+    position: fixed;
+    width: 100%;
+    margin-top: 494px;
+    margin-left: 0;
+    padding: 0;
+    height: 10px;    
+}
+button {
+    position:absolute;
+    width: 100px;
+    height: 50px;
+    margin-top: 50px;
+    margin-left: 900px;
+}
+/* .mac {
+    position: absolute;
+    width: 100px;
+    top: 0;
+    margin-left: 1000px;    
+    animation: mac_movimento infinite linear 50s;
+    
+} */
+/*
+.perdeu {
+    position: absolute;
+    width: 200px;
+    margin-left: 300px;
+    margin-top: 200px;
+}
+*/
+@keyframes grill_movimento {
+    from{
+       /* right: 0;*/
+       right: -60px; /*animação entrar na tela de modo suave e não 'surgir' do nada*/
+    }
+    to{
+        right: 100%;
+    }
+}
+@keyframes mac_movimento {
+    from {
+        right: -60px;
+    }
+    to{
+        right: 100%;
+    }
+}
+@keyframes boi_pulando {
+    0% { /*início da animação*/
+        bottom: 0;
+    }
+    40% {
+        bottom: 150px;
+
+    }
+    50% { /*meio da animação - altura máxima do pulo*/
+        bottom: 150px;
+    }
+    60% {
+        bottom: 150px;
+    }
+    100%{ /*final da animação*/
+        bottom: 0;
+    }    
+}
+@keyframes nuvens_movendo {
+    from{
+        right: -600px;
+    }
+    to{
+        right: 100%;
+    }
+}
+@keyframes balao_movendo {
+    from{
+        right: -600px;
+    }
+    to{
+        right: 100%;
+    }
+    
+}
